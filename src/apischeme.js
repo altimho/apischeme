@@ -1,8 +1,9 @@
-(function aihAPIScheme() {
+(function APIScheme() {
 
   'use strict';
 
-  const SCHEME_EXPR = /^(\w+):\/\//;
+  const SCHEME_EXPR = /^(\w+):\/\//,
+        SERVICE_NAME = 'APIScheme';
 
   class Provider {
     constructor($sceDelegateProvider) {
@@ -53,11 +54,11 @@
   }
 
   function config($httpProvider) {
-    $httpProvider.interceptors.push('aihAPISchemeInterceptor');
+    $httpProvider.interceptors.push(SERVICE_NAME);
   }
 
-  angular.module('aih.apischeme', [])
-    .provider('aihAPISchemeInterceptor', [ '$sceDelegateProvider', Provider ])
+  angular.module('altimho.apischeme', [])
+    .provider(SERVICE_NAME, [ '$sceDelegateProvider', Provider ])
     .config([ '$httpProvider', config ]);
 
 })();
