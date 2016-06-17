@@ -1,0 +1,22 @@
+{
+  "name": "apischeme",
+  "version": "1.0.0",
+  "description": "AngularJS module for translation of pseudo-url (like api://collection/items/3) to real url (https://example.com/collection/items/3).",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/altimho/apischeme.git"
+  },
+  "author": "Igor Karpinskiy <ik@altimho.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/altimho/apischeme/issues"
+  },
+  "homepage": "https://github.com/altimho/apischeme#readme",
+  "devDependencies": {
+    "typescript": "^1.8.10",
+    "uglifyjs": "^2.4.10"
+  }
+}
