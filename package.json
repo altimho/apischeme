@@ -1,6 +1,6 @@
 {
   "name": "@altimho/angular-apischeme",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "AngularJS module for translation of pseudo-url (like api://collection/items/3) to real url (https://example.com/collection/items/3).",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
