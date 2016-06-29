@@ -1,6 +1,8 @@
 TSC = ./node_modules/.bin/tsc
 UGLIFYJS = ./node_modules/.bin/uglifyjs
 
+KARMA = ./node_modules/.bin/karma
+
 default: clean dist/apischeme.js dist/apischeme.min.js
 
 clean:
@@ -15,4 +17,12 @@ dist/apischeme.min.js: dist/apischeme.js
 	@echo "Minifying…"
 	@$(UGLIFYJS) $^ -o $@ --compress --mangle
 
-.PHONY: default clean
+test:
+	@echo "Running tests…"
+	$(KARMA) start --single-run
+
+testing:
+	@echo "Testing…"
+	$(KARMA) start
+
+.PHONY: default clean test testing
