@@ -16,7 +16,12 @@
     register(scheme, processor) {
       var whitelist = this.$sceDelegateProvider.resourceUrlWhitelist();
 
-      this.schemes[scheme] = (url) => url.replace(`${scheme}:/`, processor);
+      if (angular.isFunction(processor)) {
+        this.schemes[scheme] = processor;
+      }
+      else {
+        this.schemes[scheme] = (url) => url.replace(`${scheme}:/`, processor);
+      }
 
       this.$sceDelegateProvider.resourceUrlWhitelist(
         whitelist.concat([ `${scheme}://**` ])
