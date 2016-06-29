@@ -7,7 +7,6 @@
   ],
   "license": "MIT",
   "homepage": "https://github.com/altimho/apischeme",
-  "moduleType": [],
   "ignore": [
     "**/.*",
     "node_modules",
