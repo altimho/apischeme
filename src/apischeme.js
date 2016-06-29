@@ -29,11 +29,7 @@
     }
 
     process(scheme, url) {
-      return !!this.schemes[scheme] && this.schemes[scheme](url) || url;
-    }
-
-    exists(scheme) {
-      return !!this.schemes[scheme];
+      return (this.schemes[scheme] || angular.identity)(url);
     }
 
     $get() {
@@ -43,15 +39,10 @@
     }
 
     request(config) {
-      var scheme = SCHEME_EXPR.exec(config.url);
+      var [ , scheme ] = SCHEME_EXPR.exec(config.url) || [];
 
-      if (
-        !!scheme &&
-        !!scheme[1] &&
-        this.exists(scheme[1]) &&
-        config.url.indexOf(`${scheme[1]}://`) === 0
-      ) {
-        config.url = this.process(scheme[1], config.url);
+      if (angular.isDefined(this.schemes[scheme])) {
+        config.url = this.process(scheme, config.url);
       }
 
       return config;
