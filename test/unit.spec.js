@@ -57,12 +57,12 @@ describe('APIScheme Provider', function () {
     });
 
     it('should use function processor', function () {
-      APISchemeProvider.register(TEST_SCHEME_NAME, function () {
-        return TEST_SCHEME_NAME;
+      APISchemeProvider.register(TEST_SCHEME_NAME, function (url) {
+        return url.replace(TEST_SCHEME_NAME + ':/', TEST_DOMAIN);
       });
 
       expect(APISchemeProvider.process(TEST_SCHEME_NAME, TEST_SOURCE_URL))
-        .toBe(TEST_SCHEME_NAME);
+        .toBe(TEST_DST_URL);
     });
 
   });
